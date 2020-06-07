@@ -1,10 +1,30 @@
-# DevConnector 2.0
+# never-give-up final project
+
+## Installation
+
+please execute
+
+```bash
+npm install
+```
+
+in root folder and client folder.
+
+## Run both Server and Client in dev mode
+
+execute in root folder
+
+```bash
+npm run dev
+```
+
+## DevConnector 2.0
 
 > Social network for developers
 
 This is a MERN stack application from the "MERN Stack Front To Back" course on [Udemy](https://www.udemy.com/mern-stack-front-to-back/?couponCode=TRAVERSYMEDIA). It is a small social network app that includes authentication, profiles and forum posts.
 
-# Updates since course published
+## Updates since course published
 
 Such is the nature of software; things change frequently, newer more robust paradigms emerge and packages are continuously evolving.
 Hopefully the below will help you adjust your course code to manage the most notable changes.
@@ -38,11 +58,11 @@ const options = {
   uri: encodeURI(
     `https://api.github.com/users/${req.params.username}/repos?per_page=5&sort=created:asc`
   ),
-  method: 'GET',
+  method: "GET",
   headers: {
-    'user-agent': 'node.js',
-    Authorization: `token ${config.get('githubToken')}`
-  }
+    "user-agent": "node.js",
+    Authorization: `token ${config.get("githubToken")}`,
+  },
 };
 ```
 
@@ -73,8 +93,8 @@ const uri = encodeURI(
   `https://api.github.com/users/${req.params.username}/repos?per_page=5&sort=created:asc`
 );
 const headers = {
-  'user-agent': 'node.js',
-  Authorization: `token ${config.get('githubToken')}`
+  "user-agent": "node.js",
+  Authorization: `token ${config.get("githubToken")}`,
 };
 
 const gitHubResponse = await axios.get(uri, { headers });
@@ -89,13 +109,13 @@ The npm package [uuid](https://www.npmjs.com/package/uuid) no longer has a defau
 change
 
 ```js
-import uuid from 'uuid';
+import uuid from "uuid";
 ```
 
 to
 
 ```js
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 ```
 
 And where we use it from
