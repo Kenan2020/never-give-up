@@ -18,6 +18,16 @@ execute in root folder
 npm run dev
 ```
 
+## Shared Project Email Account
+
+[portaldeutschland@gmail.com](portaldeutschland@gmail.com)
+
+password:
+
+```
+deutschlandportal121212
+```
+
 ## DevConnector 2.0
 
 > Social network for developers

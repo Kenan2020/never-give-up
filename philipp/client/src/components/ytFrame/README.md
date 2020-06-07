@@ -2,7 +2,7 @@
 
 ## Usage
 
-pass the 11-figure Youtube Video ID as "scr" prop
+pass the 11-figure Youtube Video ID as "src" prop
 
 ```js
 <YTFrame src={"UVT6_xq930I"}
