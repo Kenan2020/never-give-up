@@ -1,0 +1,11 @@
+{
+  "mongoURI": "mongodb+srv://deutschland-portal:portal1212@cluster0-yqc55.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "jwtSecret": "newsecret",
+  "githubClientId": "aa1fd58898a0bbc1eb47",
+  "githubSecret": "ea8d4c371cc08a3090ec0317a1b4e0da29555508",
+  "googleClientID": "531524502602-n3cav14jri6u95rit5pu68g8pm4t86ta.apps.googleusercontent.com",
+  "googleClientSecret": "z2PlGUQ13I7NUlMJ6r_n9XC6",
+  "cookieKey": "dfsdfsdfsdfsdfsdfsdfsdfsdfs",
+  "facebookclientID": "625018021558147",
+  "facebookClientSecret": "24e153bd2d9e9e9f8606b306e524baca"
+}

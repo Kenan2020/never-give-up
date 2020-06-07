@@ -1,0 +1,105 @@
+@import './color-variables.scss';
+
+
+// .temporary-style *{
+//     margin: 10px;
+// }
+
+
+.btnn {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+    letter-spacing: 1px;
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.54);
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.54);
+    -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.54);
+
+    &:hover {
+        transform: translateY(5px);
+        a{
+            text-decoration: none;
+        }
+        
+    }
+
+    &:focus {
+        outline: none;
+        transform: translateY(7px);
+    }
+
+}
+
+
+
+a:hover{
+    text-decoration: none;
+}
+
+.btn-primaryy {
+    background-color: $--primary;
+    color: $--white;
+    border: none;
+}
+
+.btn-secondaryy {
+    background-color: $--white;
+    color: $--warning;
+    border: none;
+}
+
+.btn-warningg {
+    background-color: $--warning;
+    color: $--white;
+    border: none;
+}
+
+.btn-successs {
+    background-color: $--success;
+    color: $--white;
+    border: none;
+}
+
+.btn-primary-outlinee {
+    background-color: transparent;
+    border: 2px solid $--primary;
+    color: $--primary;
+}
+
+.btn-warning-outlinee {
+    background-color: transparent;
+    border: 1.5px solid $--warning;
+    color: $--warning;
+}
+
+.btn-secondary-outlinee {
+    background-color: transparent;
+    border: 2px solid $--danger;
+    color: $--danger;
+}
+
+.btn-success-outlinee {
+    background-color: transparent;
+    border: 1.5px solid $--success;
+    color: $--success;
+}
+
+.btn-small {
+    padding: 10px 20px;
+    font-size: 1rem;
+
+}
+
+.btn-medium {
+    padding: 11px 30px;
+    font-size: 1.2rem;
+}
+
+.btn-large {
+    padding: 12px;
+    width: 100%;
+    font-size: 1.3rem;
+    
+}

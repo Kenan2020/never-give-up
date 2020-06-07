@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.commentInput {
+  white-space: pre-line;
+  white-space: pre-wrap;
+  text-rendering: auto;
+  min-height: 0em;
+  max-height: 50vh;
+  width: 100%;
+  overflow-y: hidden;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #999 !important;
+  resize: none;
+}
+
+.commentInput+label {
+  position: relative;
+  bottom: 18px;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.51);
+  transition: all 0.5s ease;
+}
+
+.commentInput+label::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  border-bottom: 3px solid #6699de;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+}
+
+.content-name {
+  position: absolute;
+  font-weight: normal;
+  height: 100%;
+  top: -24px;
+  left: 0px;
+  color: #aaa;
+  transition: all 0.5s ease;
+}
+
+.commentInput:focus+.label-name .content-name,
+.commentInput:valid+.label-name .content-name {
+  top: 1px;
+  font-size: 12px;
+  color: #6699de;
+}
+
+.commentInput:focus+.label-name::after,
+.commentInput:valid+.label-name::after {
+  transform: translateX(0%);
+}

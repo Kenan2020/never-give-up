@@ -1,0 +1,429 @@
+@font-face {
+    font-family: "gRoboto";
+    src: url(font/Roboto-Medium.ttf) format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "gRoboto";
+    src: url(font/Roboto-MediumItalic.ttf) format("truetype");
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "gRoboto";
+    src: url(font/Roboto-Bold.ttf) format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "gRoboto";
+    src: url(font/Roboto-BoldItalic.ttf) format("truetype");
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+@font-face {
+    font-family: "gRoboto";
+    src: url(font/Roboto-Black.ttf) format("truetype");
+    font-weight: bolder;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "gRoboto";
+    src: url(font/Roboto-BlackItalic.ttf) format("truetype");
+    font-weight: bolder;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "gRoboto";
+    src: url(font/Roboto-Light.ttf) format("truetype");
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "gRoboto";
+    src: url(font/Roboto-LightItalic.ttf) format("truetype");
+    font-weight: lighter;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "gRoboto";
+    src: url(font/Roboto-Regular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "gRoboto";
+    src: url(font/Roboto-Thin.ttf) format("truetype");
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "gRoboto";
+    src: url(font/Roboto-ThinItalic.ttf) format("truetype");
+    font-weight: 100;
+    font-style: italic;
+}
+
+body {
+    font-family: "gRoboto" !important;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+
+.text-style {
+    font-family: gRoboto, -apple-system, BlinkMacSystemFont, "Segoe UI" !important;
+    font-size: 16px;
+    line-height: 1.2rem;
+    white-space: pre-wrap;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    word-spacing: 1px;
+    color: #333;
+}
+
+@media only screen and (max-width: 576px) {
+    .reply-list {
+        padding: 0.3rem;
+        width: 100%;
+        background-color: #4592fe;
+        border-radius: 10px;
+        /*    box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.1); */
+        box-shadow: 0px 0px 8px 0px #4592fe;
+    }
+
+    /*  .reply-card {
+     box-shadow: 0px 0px 12px 0px #4592fe;
+     ;
+ } */
+}
+
+
+
+.reply-to {
+    font-family: "gRoboto" !important;
+    font-weight: bolder;
+    font-size: 14px;
+    color: #777
+}
+
+.reply-to:hover {
+    color: #aaa
+}
+
+/* like dislike */
+
+.like-dislike>a {
+    font-size: 15px !important;
+}
+
+.like-dislike>a:hover {
+    color: #555 !important;
+}
+
+/*  */
+.comment-button {
+    font-family: "gRoboto" !important;
+    color: #555 !important;
+}
+
+.comment-button:hover {
+    font-family: "gRoboto" !important;
+    color: #999 !important;
+}
+
+.reply-button {
+    color: #4592fe !important;
+}
+
+.reply-button:hover {
+    color: #8ebdff !important;
+}
+
+.reply-button:active {
+    color: #0066ff !important;
+}
+
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*////// comments ////////*/
+
+* {
+    font-family: gRoboto, -apple-system, BlinkMacSystemFont, "Segoe UI";
+}
+
+textarea {
+    border-radius: 0 !important;
+    border: none !important;
+    border-bottom: 2px solid black !important;
+}
+
+.reply-to {
+    font-size: 12px;
+    color: #777;
+}
+
+.comment-card {
+    padding: 0.3rem;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 12px 2px rgba(0, 0, 0, 0.1);
+}
+
+.comment {
+    font-family: gRoboto, -apple-system, BlinkMacSystemFont, "Segoe UI";
+    /*  font-size: 16px; */
+    font-size: 1rem;
+    line-height: 1.2rem;
+    white-space: pre-wrap;
+    font-weight: 500;
+    letter-spacing: -0.8px;
+    word-spacing: 1px;
+    color: #333;
+}
+
+.userAvatar {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+}
+
+.currentDate {
+    font-family: gRoboto, -apple-system, BlinkMacSy stemFont, "Segoe UI";
+    font-weight: normal !important;
+    font-size: 15px;
+    line-height: 1rem;
+    font-weight: 400;
+    letter-spacing: -0.8px;
+    word-spacing: 1px;
+    color: #888 !important;
+}
+
+.currentDate:hover {
+    color: #bbb !important;
+}
+
+
+.name {
+    font-size: 17px;
+    line-height: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.8px;
+    word-spacing: 1px;
+    color: #222;
+}
+
+.name:hover {
+    color: #aaa;
+}
+
+.text-color-1 {
+    color: #4592fe !important;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.responseTag {
+    color: #4592fe;
+    font-weight: bold;
+}
+
+.deletedMsg {
+    display: inline;
+    letter-spacing: 2px;
+    color: #aaa;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.editMsg {
+    display: inline;
+    letter-spacing: 2px;
+    color: #aaa;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.deletion-timestamp {
+    display: block;
+    color: #aaa;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+/*//////////// Textarea ///////////////*/
+
+.commentInput {
+    white-space: pre-line;
+    white-space: pre-wrap;
+    text-rendering: auto;
+    min-height: 0em;
+    max-height: 50vh;
+    width: 100%;
+    overflow-y: hidden;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #999 !important;
+    resize: none;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    letter-spacing: -0.8px;
+    word-spacing: 1px;
+    font-weight: 400;
+}
+
+.commentInput+label {
+    position: relative;
+    bottom: 18px;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.51);
+    transition: all 0.5s ease;
+}
+
+.commentInput+label::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    border-bottom: 3px solid #6699de;
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+}
+
+.content-name {
+    position: absolute;
+    font-weight: normal;
+    height: 100%;
+    top: -24px;
+    left: 0px;
+    color: #aaa;
+    transition: all 0.5s ease;
+}
+
+.commentInput:focus+.label-name .content-name,
+.commentInput:valid+.label-name .content-name {
+    top: 1px;
+    font-size: 12px;
+    color: #6699de;
+}
+
+.commentInput:focus+.label-name::after,
+.commentInput:valid+.label-name::after {
+    transform: translateX(0%);
+}
+
+/*////////// comment form /////////// */
+.commentForm,
+.edit-form {
+    display: block;
+    width: auto;
+    position: relative;
+    height: auto;
+    overflow: hidden;
+}
+
+.edit-area {
+
+    font-weight: 400 !important;
+    color: #000 !important;
+}
+
+a {
+    cursor: pointer;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+a:hover {
+    color: rgba(0, 0, 0, 0.51) !important;
+}
+
+/*//////// like dislike //////////*/
+
+.like-dislike>button>span {
+    font-size: 14px;
+}
+
+.like-dislike>button:hover {
+    color: #333;
+}
+
+.like-dislike>button {
+    color: #777 !important;
+}
+
+.like-dislike>.selected {
+    color: #4592fe !important;
+}
+
+/*/////////// button style ////////////*/
+
+.button-style {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.button-style:focus {
+    outline: none;
+}
+
+.button-style:active {
+    color: #bbb !important;
+}
