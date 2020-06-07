@@ -9,3 +9,7 @@ pass the 11-figure Youtube Video ID as "src" prop
 ```
 
 You can find the Youtube Video ID right behind "watch?v=" in the URL
+
+## WIP
+
+Adding youtube authentification to supmit likes to a video.
