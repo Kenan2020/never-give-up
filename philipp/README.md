@@ -22,11 +22,7 @@ npm run dev
 
 [portaldeutschland@gmail.com](portaldeutschland@gmail.com)
 
-password:
 
-```
-deutschlandportal121212
-```
 
 ## DevConnector 2.0
 
