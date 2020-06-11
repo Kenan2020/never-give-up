@@ -12,7 +12,7 @@ import setAuthToken from "./utils/setAuthToken";
 import Google from "./components/auth/Google";
 import Facebook from "./components/auth/Facebook";
 import Landing from "./pages/Landing";
-
+import SignInUpDialog from "./components/layout/SignInUpDialog/SignInUpDialog";
 import CustomizedDialogs from "./components/layout/Dialoge";
 const App = () => {
   useEffect(() => {
@@ -22,7 +22,8 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <CustomizedDialogs />
+      {/* <CustomizedDialogs /> */}
+      <SignInUpDialog />
       <Router>
         <Fragment>
           <Navbar />

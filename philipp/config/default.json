@@ -1,5 +1,5 @@
 {
-  "mongoURI": "mongodb+srv://deutschland-portal:portal1212@cluster0-yqc55.mongodb.net/deutschlandportal?retryWrites=true&w=majority",
+  "mongoURI": "mongodb+srv://deutschland-portal:portal1212@cluster0-yqc55.mongodb.net/PHIL?retryWrites=true&w=majority",
   "jwtSecret": "newsecret",
   "githubClientId": "aa1fd58898a0bbc1eb47",
   "githubSecret": "ea8d4c371cc08a3090ec0317a1b4e0da29555508",

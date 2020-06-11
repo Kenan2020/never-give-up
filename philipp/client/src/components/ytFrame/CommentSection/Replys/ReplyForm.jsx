@@ -22,7 +22,7 @@ const ReplyForm = ({
     e.preventDefault();
     if (!isAuthenticated)
       setDialog({
-        title: "Account required",
+        title: "Login required",
         msg: "Please login to make a comment!",
         alertType: "primary",
         buttons: [
