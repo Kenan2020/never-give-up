@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
-import "../../styls/login.css";
+import "./styls/login.css";
 
 import Input from "../reusable-input/Input";
 import { Buttonn } from "../reusable-button/Buttonn";
@@ -32,15 +32,15 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
-      {/* 
+
       <div className="container">
         <div className="row d-flex justify-content-center">
           <div className="col-xs-12 col-sm-10 col-md-8 col-lg-8">
             <h1 className=" text-center mt-5 "><i className="fas fa-user  mt-5" /> Sign in</h1>
             <div className="kpx_login mt-2 ">
               <div className=" kpx_socialButtons">
-                <Link
-                  href="#"
+                <a
+                  href="/auth/facebook"
                   className="btn btn-lg  d-block kpx_btn-facebook"
                   data-toggle="tooltip"
                   data-placement="top"
@@ -48,7 +48,7 @@ const Login = ({ login, isAuthenticated }) => {
                 >
                   <i className="fa fa-facebook fa-2x"></i>
                   <span className="hidden-xs"></span>
-                </Link>
+                </a>
                 <a
                   href="/auth/google"
                   className="btn btn-lg mt-3  d-block kpx_btn-google-plus"
@@ -116,14 +116,17 @@ const Login = ({ login, isAuthenticated }) => {
                 </Link>
               </div>
             </form>
+            <Link to='/forgetpassword' className="btn btn-danger">
+              forget Password
+            </Link>
           </div>
         </div>
-      </div> */}
-      <div className="col-md-6 offset-md-3  bg-light">
+      </div>
+      {/* <div className="col-md-6 offset-md-3  bg-light">
         <h1 className=" text-center mt-5 "><i className="fas fa-user  mt-5" /> Sign Into Your Account</h1>
         <div className="">
-          <Link
-            to="#"
+          <a
+            href="/auth/facebook"
             className="btn btn-lg  d-block kpx_btn-facebook"
             data-toggle="tooltip"
             data-placement="top"
@@ -131,7 +134,7 @@ const Login = ({ login, isAuthenticated }) => {
           >
             <i className="fa fa-facebook fa-2x"></i>
             <span className="hidden-xs"></span>
-          </Link>
+          </a>
           <a
             href="/auth/google"
             className="btn btn-lg mt-3  d-block kpx_btn-google-plus"
@@ -178,9 +181,12 @@ const Login = ({ login, isAuthenticated }) => {
                 Sign Up{" "}
               </Buttonn>
             </Link>
+            <Link to='/forgetpassword'>
+              forget Password
+            </Link>
           </div>
         </form>
-      </div >
+      </div > */}
 
     </Fragment >
   );

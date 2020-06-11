@@ -1,4 +1,5 @@
 import api from "../utils/api";
+import { setAlert } from "./alert";
 import {
   PUT_COMMENT,
   ADD_COMMENT,
@@ -8,7 +9,6 @@ import {
   ADD_REPLYS,
   RESET_REPLYS,
 } from "../actions/types";
-import axios from "axios";
 
 ///////////////// GET COMMENTS ////////////////////
 
@@ -70,14 +70,8 @@ export const resetReplys = () => dispatch => {
 
 /////////////////// ADD Comment ///////////////////////
 export const addComment = ({ content, videoId }) => async dispatch => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
   const body = JSON.stringify({ content, videoId });
-
-  await api.post("/comment", body, config).then(res => {
+  await api.post("/comment", body).then(res => {
     if (res.status === 200) {
       dispatch({
         type: ADD_COMMENT,
@@ -126,15 +120,9 @@ export const addReply = ({
   parentCommentId,
   at,
 }) => async dispatch => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-
   const body = JSON.stringify({ content, parentCommentId, at });
 
-  await api.post("/comment/reply", body, config).then(res => {
+  await api.post("/comment/reply", body).then(res => {
     if (res.status === 200) {
       console.log(res.data);
       dispatch({
@@ -150,14 +138,9 @@ export const addReply = ({
 ////////////////////// UPDATE COMMENT ///////////////////////
 
 export const updateComment = ({ commentId, content }) => async dispatch => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
   const body = JSON.stringify({ content });
 
-  await api.put(`/api/comment/update/${commentId}`, body, config).then(res => {
+  await api.put(`/comment/update/${commentId}`, body).then(res => {
     if (res.status === 200) {
       dispatch({
         type: PUT_COMMENT,
@@ -172,14 +155,9 @@ export const updateComment = ({ commentId, content }) => async dispatch => {
 ////////////////////// UPDATE REPLY ///////////////////////
 
 export const updateReply = ({ commentId, content }) => async dispatch => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
   const body = JSON.stringify({ content });
 
-  await api.put(`/comment/update/${commentId}`, body, config).then(res => {
+  await api.put(`/comment/update/${commentId}`, body).then(res => {
     if (res.status === 200) {
       dispatch({
         type: PUT_REPLY,

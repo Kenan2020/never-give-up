@@ -1,55 +1,61 @@
-import React, { Fragment, useState } from "react";
-import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
-import { setAlert } from "../../actions/alert";
-import { register } from "../../actions/auth";
-import PropTypes from "prop-types";
-import { Buttonn } from "../reusable-button/Buttonn";
-import Input from "../reusable-input/Input";
+import React, { Fragment, useState } from 'react';
+import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
+import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
+import PropTypes from 'prop-types';
+import { Buttonn } from '../reusable-button/Buttonn';
+import Input from '../reusable-input/Input'
 
-const Register = ({ setAlert, register, isAuthenticated, authReducer }) => {
+const Register = ({
+    setAlert,
+    register,
+    message,
+    authReducer,
+    activateLink
+  }) => {
   const [formData, setFormData] = useState({
-    username: "",
-    name: "",
-    lastname: "",
-    email: "",
-    password: "",
-    password2: "",
+    userName: '',
+    name: '',
+    lastName: '',
+    email: '',
+    password: '',
+    password2: ''
   });
 
-  const { username, name, lastname, email, password, password2 } = formData;
+  const { userName, name, lastName, email, password, password2 } = formData;
 
-  const onChange = e =>
+  const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (password !== password2) {
-      setAlert("Passwords do not match", "danger");
+      setAlert('Passwords do not match', 'danger');
     } else {
-      register({ username, name, lastname, email, password });
+      register({ userName, name, lastName, email, password });
     }
   };
   if (authReducer) {
     return <Redirect to="/dashboard" />;
+
   }
 
-  if (isAuthenticated) {
-    return <Redirect to="/dashboard" />;
+  if (activateLink) {
+    setAlert('We send you email please Activate your account')
   }
 
   return (
     <Fragment>
+
       <div className="container">
         <div className="row d-flex justify-content-center">
           <div className="col-xs-12 col-sm-10 col-md-8 col-lg-8">
-            <h1 className=" text-center mt-3 ">
-              <i className="fas fa-user  mt-3" /> Sign Up
-            </h1>
+            <h1 className=" text-center mt-3 "><i className="fas fa-user  mt-3" /> Sign Up</h1>
             <div className="kpx_login mt-2 ">
               <div className=" kpx_socialButtons">
-                <Link
-                  href="#"
+                <a
+                  href="/auth/facebook"
                   className="btn btn-lg  d-block kpx_btn-facebook"
                   data-toggle="tooltip"
                   data-placement="top"
@@ -57,7 +63,7 @@ const Register = ({ setAlert, register, isAuthenticated, authReducer }) => {
                 >
                   <i className="fa fa-facebook fa-2x"></i>
                   <span className="hidden-xs"></span>
-                </Link>
+                </a>
                 <a
                   href="/auth/google"
                   className="btn btn-lg mt-3  d-block kpx_btn-google-plus"
@@ -85,8 +91,8 @@ const Register = ({ setAlert, register, isAuthenticated, authReducer }) => {
                   placeholder="Write your user name"
                   label="User name"
                   onChange={onChange}
-                  value={username}
-                  name="username"
+                  value={userName}
+                  name="userName"
                 />
                 <Input
                   type="text"
@@ -103,8 +109,8 @@ const Register = ({ setAlert, register, isAuthenticated, authReducer }) => {
                   placeholder="Write your last name"
                   label="Last name"
                   onChange={onChange}
-                  value={lastname}
-                  name="lastname"
+                  value={lastName}
+                  name="lastName"
                 />
                 <Input
                   type="email"
@@ -129,8 +135,8 @@ const Register = ({ setAlert, register, isAuthenticated, authReducer }) => {
                   attribute={{ minLength: 6 }}
                   type="password"
                   inputSize="large"
-                  placeholder="Repeat your Password"
-                  label="Repeat Password"
+                  placeholder="Confirm your Password"
+                  label="Confirm Password"
                   onChange={onChange}
                   value={password2}
                   name="password2"
@@ -148,7 +154,7 @@ const Register = ({ setAlert, register, isAuthenticated, authReducer }) => {
                     buttonSize="btn-large"
                     value="Login"
                   >
-                    <i className="fa fa-sign-in"></i> Sign In{" "}
+                    <i className="fa fa-sign-in"></i> Sign Up{" "}
                   </Buttonn>
                 </div>
                 <div className="mb-3">
@@ -161,22 +167,24 @@ const Register = ({ setAlert, register, isAuthenticated, authReducer }) => {
                       buttonStyle="btn-primary-outlinee"
                       buttonSize="btn-large"
                     >
-                      <i className="fa fa-sign-in"></i> Already have an account
-                      signin{" "}
+                      <i className="fa fa-sign-in"></i> Already have an account signin{" "}
                     </Buttonn>
                   </Link>
                 </div>
               </form>
+              <Link to='/forgetpassword' className="btn btn-danger">
+                forget Password
+            </Link>
             </div>
           </div>
         </div>
       </div>
-
-      {/* <div className="col-md-6 offset-md-3  bg-light">
+      {/* 
+      <div className="col-md-6 offset-md-3  bg-light">
         <h1 className=" text-center mt-3 "><i className="fas fa-user  mt-3" /> Sign Up</h1>
         <div className="">
-          <Link
-            to="#"
+          <a
+            href="/auth/facebook"
             className="btn btn-lg  d-block kpx_btn-facebook"
             data-toggle="tooltip"
             data-placement="top"
@@ -184,7 +192,7 @@ const Register = ({ setAlert, register, isAuthenticated, authReducer }) => {
           >
             <i className="fa fa-facebook fa-2x"></i>
             <span className="hidden-xs"></span>
-          </Link>
+          </a>
           <a
             href="/auth/google"
             className="btn btn-lg mt-3  d-block kpx_btn-google-plus"
@@ -199,8 +207,8 @@ const Register = ({ setAlert, register, isAuthenticated, authReducer }) => {
         <hr />
         <form onSubmit={onSubmit} className="mt-5">
           <div className="form-group">
-            <label htmlFor="username">User name:</label>
-            <input type="text" className="form-control" value={username} onChange={onChange} placeholder="Enter user name" name="username" />
+            <label htmlFor="userName">User name:</label>
+            <input type="text" className="form-control" value={} onChange={onChange} placeholder="Enter user name" name="username" />
           </div>
           <div className="form-group">
             <label htmlFor="firstname">First name:</label>
@@ -208,7 +216,7 @@ const Register = ({ setAlert, register, isAuthenticated, authReducer }) => {
           </div>
           <div className="form-group">
             <label htmlFor="email">Last name:</label>
-            <input type="text" className="form-control" value={lastname} onChange={onChange} placeholder="Enter last name" name="lastname" />
+            <input type="text" className="form-control" value={lastName} onChange={onChange} placeholder="Enter last name" name="lastname" />
           </div>
           <div className="form-group">
             <label htmlFor="email">Email:</label>
@@ -248,9 +256,14 @@ const Register = ({ setAlert, register, isAuthenticated, authReducer }) => {
                 Already have account signin
               </Buttonn>
             </Link>
+            <Link to='/forgetpassword'>
+              forget Password
+            </Link>
           </div>
         </form>
-      </div> */}
+      </div>
+ */}
+
     </Fragment>
   );
 };
@@ -258,12 +271,13 @@ const Register = ({ setAlert, register, isAuthenticated, authReducer }) => {
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool,
+  isAuthenticated: PropTypes.bool
 };
 
-const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
-  authReducer: state.authReducer,
+const mapStateToProps = (state) => ({
+  message: state.auth.message,
+  authReducer: state.authReducer
+
 });
 
 export default connect(mapStateToProps, { setAlert, register })(Register);

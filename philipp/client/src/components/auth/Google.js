@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { fetchUser } from '../../actions/google'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+
 
 const Google = ({ authReducer, fetchUser }) => {
 
@@ -10,7 +10,7 @@ const Google = ({ authReducer, fetchUser }) => {
     useEffect(() => {
 
         fetchUser();
-    }, []);
+    }, [fetchUser]);
     console.log(authReducer)
 
     if (authReducer !== null) {

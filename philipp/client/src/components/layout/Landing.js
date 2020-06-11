@@ -2,6 +2,7 @@ import React from 'react';
 // import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Landing = ({ isAuthenticated }) => {
   // if (isAuthenticated) {
@@ -22,6 +23,9 @@ const Landing = ({ isAuthenticated }) => {
               Login
             </Link>
           </div> */}
+          <Link to='/chat'>
+            <button className="btn btn-danger">Chating</button>
+          </Link>
         </div>
       </div>
     </section>

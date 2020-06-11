@@ -4,6 +4,7 @@ import auth from "./auth";
 import profile from "./profile";
 import authReducer from "./authReducer";
 import comments from "./comment";
+import dialog from "./dialog";
 
 export default combineReducers({
   alert,
@@ -11,4 +12,5 @@ export default combineReducers({
   profile,
   authReducer,
   comments,
+  dialog,
 });

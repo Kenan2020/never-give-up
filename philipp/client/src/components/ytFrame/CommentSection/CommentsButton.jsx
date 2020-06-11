@@ -15,7 +15,6 @@ const CommentsButton = ({
 
   const commetentsCount = () => {
     if (comments) {
-      console.log(comments);
       if (comments[0]) {
         return comments.length;
       }

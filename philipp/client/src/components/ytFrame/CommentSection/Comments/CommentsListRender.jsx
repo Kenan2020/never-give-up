@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { animated, useTrail, useSpring } from "react-spring";
+import { animated, useTrail } from "react-spring";
 import Comment from "./Comment";
+import PropTypes from "prop-types";
 
 const CommentsListRender = ({ show, array }) => {
   const [items, setItems] = useState(null);
@@ -68,6 +69,11 @@ const CommentsListRender = ({ show, array }) => {
         </animated.div>
       ))
     : null;
+};
+
+CommentsListRender.propTypes = {
+  show: PropTypes.bool,
+  array: PropTypes.array,
 };
 
 export default CommentsListRender;

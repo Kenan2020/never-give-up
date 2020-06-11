@@ -181,7 +181,7 @@ const ProfileForm = ({
 
                         <Input
                           cols="80"
-                          defaultValue="Lamborghini Mercy, Your chick she so thirsty"
+
                           rows="4"
                           type="textarea"
                           placeholder="A short bio of yourself"

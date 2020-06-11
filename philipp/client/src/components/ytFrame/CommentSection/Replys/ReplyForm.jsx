@@ -1,13 +1,38 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addReply } from "../../../../actions/comment";
+import { setDialog } from "./../../../../actions/dialog";
 import TextArea from "../textarea/TextArea";
 
-const ReplyForm = ({ show, setShow, at, addReply, parentCommentId }) => {
+import PropTypes from "prop-types";
+
+const ReplyForm = ({
+  show,
+  setShow,
+  callback,
+  at,
+  addReply,
+  setDialog,
+  parentCommentId,
+  isAuthenticated,
+}) => {
   const [comment, setComment] = useState("");
 
   const submitHandler = e => {
     e.preventDefault();
+    if (!isAuthenticated)
+      setDialog({
+        title: "Account required",
+        msg: "Please login to make a comment!",
+        alertType: "primary",
+        buttons: [
+          {
+            title: "login",
+            color: "primary",
+            href: "http://localhost:3000/login",
+          },
+        ],
+      });
     addReply({ content: comment, parentCommentId, at });
     setComment("");
     setShow(false);
@@ -47,4 +72,18 @@ const ReplyForm = ({ show, setShow, at, addReply, parentCommentId }) => {
   );
 };
 
-export default connect(null, { addReply })(ReplyForm);
+ReplyForm.propTypes = {
+  show: PropTypes.bool,
+  setShow: PropTypes.func.isRequired,
+  at: PropTypes.string,
+  addReply: PropTypes.func.isRequired,
+  setDialog: PropTypes.func,
+  parentCommentId: PropTypes.string.isRequired,
+  isAuthenticated: PropTypes.bool,
+};
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { addReply, setDialog })(ReplyForm);

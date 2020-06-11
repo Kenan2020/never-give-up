@@ -15,6 +15,8 @@ import DropDown from "../../dropdown/DropDown";
 import EditForm from "../EditForm";
 import CommentDisplay from "../CommentDisplay";
 
+import PropTypes from "prop-types";
+
 const Comments = ({
   comment: {
     _id,
@@ -54,6 +56,7 @@ const Comments = ({
   const replyHandler = e => {
     e.preventDefault();
     setOpenReply(!openReply);
+    setShowReply(true);
   };
 
   const showReplys = e => {
@@ -158,6 +161,17 @@ const Comments = ({
       </div>
     </div>
   );
+};
+
+Comments.propTypes = {
+  comment: PropTypes.object,
+  replys: PropTypes.object,
+  authUser: PropTypes.object,
+  deleteComment: PropTypes.func,
+  updateComment: PropTypes.func,
+  upVoteComment: PropTypes.func,
+  downVoteComment: PropTypes.func,
+  style: PropTypes.object,
 };
 
 const mapStateToProps = state => ({

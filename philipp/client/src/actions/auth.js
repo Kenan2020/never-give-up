@@ -8,7 +8,10 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-  CLEAR_PROFILE
+  CLEAR_PROFILE,
+  FORGOT_PASSWORD,
+  REST_PASSWORD,
+  ACTIVATI_ACOUNTE,
 } from './types';
 
 // Load User
@@ -31,8 +34,20 @@ export const loadUser = () => async dispatch => {
 };
 
 // Register User
-export const register = ({ username, name, lastname, email, password }) => async dispatch => {
-  const body = JSON.stringify({ username, name, lastname, email, password });
+export const register = ({
+    userName,
+    name,
+    lastName,
+    email,
+    password
+  }) => async dispatch => {
+  const body = JSON.stringify({
+    userName,
+    name,
+    lastName,
+    email,
+    password
+  });
 
   try {
     const res = await api.post('/users', body);
@@ -41,7 +56,7 @@ export const register = ({ username, name, lastname, email, password }) => async
       type: REGISTER_SUCCESS,
       payload: res.data
     });
-    dispatch(loadUser());
+    // dispatch(loadUser());
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -86,3 +101,62 @@ export const logout = () => dispatch => {
   dispatch({ type: CLEAR_PROFILE });
   dispatch({ type: LOGOUT });
 };
+
+
+//Forgot Password
+
+export const forgotpassword = (email) => async dispatch => {
+  const body = JSON.stringify({ email });
+  try {
+    const res = await api.post('/users/forgotpassword', body);
+    dispatch({
+      type: FORGOT_PASSWORD,
+      payload: res.data
+    })
+  } catch (err) {
+    const errors = err.response.data.errors;
+    if (errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    }
+
+  }
+}
+
+//Reset Password
+export const resetpassword = (resetPasswordLink, newPassword) => async dispatch => {
+  const body = JSON.stringify({ resetPasswordLink, newPassword });
+
+  try {
+    const res = await api.post('/users/resetpassword', body);
+    console.log(res.data)
+    dispatch({
+      type: REST_PASSWORD,
+      payload: res.data
+    })
+  } catch (err) {
+    const errors = err.response.data.errors;
+    if (errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    }
+  }
+}
+
+//Activate Accunt
+export const activateAcount = (token) => async dispatch => {
+  const body = JSON.stringify({ token });
+  try {
+    const res = await api.post('/users/account-activation', body);
+    console.log(res.data)
+    dispatch({
+      type: ACTIVATI_ACOUNTE,
+      payload: res.data
+    })
+    dispatch(loadUser());
+  } catch (err) {
+    const errors = err.response.data.errors;
+    if (errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    }
+
+  }
+}

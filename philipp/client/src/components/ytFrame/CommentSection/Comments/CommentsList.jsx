@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Comment from "./Comment";
 import { connect } from "react-redux";
 import Spinner from "./../../Spinner";
 import CommentsListRender from "./CommentsListRender";
-
-import { useTransition, useSpring, animated } from "react-spring";
-/* 
-import { useMeasure, usePrevious } from "./helpers"; */
-
 import CommentsButton from "./../CommentsButton";
 import DropDown from "./../../dropdown/DropDown";
+
+import PropTypes from "prop-types";
 
 const CommentsList = ({ className, comments, videoId, replys, loading }) => {
   comments = comments[videoId];
@@ -99,6 +95,14 @@ const CommentsList = ({ className, comments, videoId, replys, loading }) => {
       ) : null}
     </>
   );
+};
+
+CommentsList.propTypes = {
+  className: PropTypes.string,
+  comments: PropTypes.object.isRequired,
+  videoId: PropTypes.string,
+  replys: PropTypes.array.isRequired,
+  loading: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({

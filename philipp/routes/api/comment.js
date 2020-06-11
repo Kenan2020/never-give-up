@@ -21,17 +21,25 @@ router.post(
     ],
   ],
   async (req, res) => {
+    //console.log("result: ", req.statusCode);
+    //  console.log(req);
     const errors = validationResult(req);
+    //  console.log(res.statusCode, res.statusCode == "401");
+    /*   if (res.statusCode === 401) {
+      console.log("send");
+      return res;
+    } */
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    console.log("post");
+
     const { content, videoId } = req.body;
+    console.log(req.body);
     try {
       const user = await User.findById(req.user.id).select("-password");
       const newComment = new Comment({
         content,
-        userName: user.name,
+        userName: user.userName,
         user: user._id,
         videoId,
         avatar: user.avatar,
@@ -186,8 +194,7 @@ router.get("/all/:id", async (req, res) => {
     .exec((error, data) => {
       if (error) return res.status(400).send(error);
       if (!data.length) {
-        const newComment = new Comment({});
-        console.log(req.params.id);
+        /*     const newComment = new Comment({}); */
         return res.status(200).send([{ videoId: req.params.id }]);
       }
       return res.status(200).send(data);
@@ -220,7 +227,7 @@ router.post(
 
       const newComment = new Comment({
         content,
-        userName: user.name,
+        userName: user.userName,
         user: user._id,
         replyTo: parentCommentId,
         avatar: user.avatar,

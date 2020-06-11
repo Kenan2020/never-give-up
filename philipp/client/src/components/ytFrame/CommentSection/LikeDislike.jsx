@@ -1,5 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
+import { setDialog } from "./../../../actions/dialog";
+
+import PropTypes from "prop-types";
 
 const LikeDislike = ({
   commentId,
@@ -7,14 +10,35 @@ const LikeDislike = ({
   upVoteHandler,
   downVoteHandler,
   authUser,
+  setDialog,
+  isAuthenticated,
 }) => {
+  const checkAuth = () => {
+    if (!isAuthenticated) {
+      return setDialog({
+        title: "Account required",
+        msg: "Please login to make a comment!",
+        alertType: "primary",
+        buttons: [
+          {
+            title: "login",
+            color: "primary",
+            href: "http://localhost:3000/login",
+          },
+        ],
+      });
+    }
+  };
+
   const likesHandler = e => {
     e.preventDefault();
+    checkAuth();
     upVoteHandler(commentId);
   };
 
   const dislikesHandler = e => {
     e.preventDefault();
+    checkAuth();
     downVoteHandler(commentId);
   };
 
@@ -55,8 +79,20 @@ const LikeDislike = ({
     </div>
   );
 };
+
+LikeDislike.propTypes = {
+  commentId: PropTypes.string.isRequired,
+  votes: PropTypes.object,
+  upVoteHandler: PropTypes.func.isRequired,
+  downVoteHandler: PropTypes.func.isRequired,
+  authUser: PropTypes.object,
+  setDialog: PropTypes.func,
+  isAuthenticated: PropTypes.bool,
+};
+
 const mapStateToProps = state => ({
   authUser: state.auth.user,
+  isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps)(LikeDislike);
+export default connect(mapStateToProps, { setDialog })(LikeDislike);

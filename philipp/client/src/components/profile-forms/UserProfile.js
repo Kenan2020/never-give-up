@@ -21,9 +21,9 @@ import {
 // Check for token to keep user logged in
 
 const initialState = {
-    username: '',
+    userName: '',
     name: '',
-    lastname: '',
+    lastName: '',
     email: '',
     password: ''
 }
@@ -38,8 +38,8 @@ const UserProfile = ({ auth: { user },
 
 
     const {
-        username,
-        name, lastname, email, password
+        userName,
+        name, lastName, email, password
     } = formData
 
     const onChange = e => {
@@ -73,10 +73,10 @@ const UserProfile = ({ auth: { user },
                                                 <Input
                                                     disabled
                                                     onChange={onChange}
-                                                    placeholder={user.username}
+                                                    placeholder={user.userName}
                                                     type="text"
-                                                    name='username'
-                                                    value={username}
+                                                    name='userName'
+                                                    value={userName}
                                                     autoComplete='off'
                                                 />
                                             </FormGroup>
@@ -100,11 +100,11 @@ const UserProfile = ({ auth: { user },
                                             <FormGroup>
                                                 <label>Last Name</label>
                                                 <Input
-                                                    value={lastname}
+                                                    value={lastName}
                                                     onChange={onChange}
-                                                    placeholder={user.lastname}
+                                                    placeholder={user.lastName}
                                                     type="text"
-                                                    name='lastname'
+                                                    name='lastName'
                                                     autoComplete='off'
                                                 />
                                             </FormGroup>
@@ -159,7 +159,7 @@ const UserProfile = ({ auth: { user },
                                     <div className="block block-four" />
                                     <div className="text-success">
 
-                                        <h5 className="title">{user.name} {user.lastname}</h5>
+                                        <h5 className="title">{user.name} {user.lastName}</h5>
                                     </div>
                                     <p className="description">Ceo/Co-Founder</p>
                                 </div>

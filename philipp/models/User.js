@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-  username: {
+  userName: {
     type: String,
     required: true
   },
@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  lastname: {
+  lastName: {
     type: String,
     required: true
   },
@@ -21,6 +21,18 @@ const UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
+  },
+  resetPasswordLink: {
+    data: String,
+    default: ''
+  },
+  activateLink:{
+     type:String,
+      default:''
+  },
+  activated:{
+    type:Boolean,
+    default:false
   },
   avatar: {
     type: String

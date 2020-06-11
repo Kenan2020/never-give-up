@@ -53,7 +53,7 @@ module.exports = (app) => {
     app.get(
         "/auth/facebook",
         passport.authenticate("facebook", {
-            scope: ["profile", "email"],
+            scope: "email"
         })
     );
     app.get(
@@ -62,7 +62,7 @@ module.exports = (app) => {
         (req, res) => {
 
 
-            res.redirect('/')
+            res.redirect('/facebookcheck')
         }
     );
 

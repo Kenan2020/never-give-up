@@ -6,14 +6,21 @@ import {
   LOGIN_SUCCESS,
   //LOGIN_FAIL,
   LOGOUT,
-  ACCOUNT_DELETED
+  ACCOUNT_DELETED,
+  REST_PASSWORD,
+  FORGOT_PASSWORD,
+  ACTIVATI_ACOUNTE
+
 } from '../actions/types';
 
 const initialState = {
   token: localStorage.getItem('token'),
   isAuthenticated: null,
   loading: true,
-  user: null
+  user: null,
+  resetpassword: false,
+  forgotpassword: false,
+  activateLink:false
 };
 
 export default function (state = initialState, action) {
@@ -31,8 +38,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         ...payload,
-        isAuthenticated: true,
-        loading: false
+        activateLink:false
       };
     case LOGIN_SUCCESS:
       return {
@@ -56,8 +62,27 @@ export default function (state = initialState, action) {
         token: null,
         isAuthenticated: false,
         loading: false,
-        user: null
+        user: null,
+
       };
+    case REST_PASSWORD:
+      return {
+        ...state,
+        resetpassword: true
+      }
+    case FORGOT_PASSWORD:
+      return {
+        ...state,
+        forgotpassword: true
+      }
+    case ACTIVATI_ACOUNTE:
+      return {
+        ...state,
+         ...payload,
+         isAuthenticated: true,
+         loading:false,
+         activateLink: true
+      }
     default:
       return state;
   }

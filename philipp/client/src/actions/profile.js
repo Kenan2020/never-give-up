@@ -3,12 +3,12 @@ import { setAlert } from './alert';
 
 import {
   GET_PROFILE,
-  GET_PROFILES,
   PROFILE_ERROR,
   CLEAR_PROFILE,
   ACCOUNT_DELETED,
   UPDATE_USER_PROFILE,
-  PROFILE_USER_ERROR
+  PROFILE_USER_ERROR,
+  GET_PROFILES
 } from './types';
 
 
@@ -61,7 +61,7 @@ export const getCurrentProfile = () => async dispatch => {
   }
 };
 
-//Get and update profile
+// Get and update profile
 
 // Get all profiles
 export const getProfiles = () => async dispatch => {
@@ -82,7 +82,7 @@ export const getProfiles = () => async dispatch => {
   }
 };
 
-// Get profile by ID
+// // Get profile by ID
 export const getProfileById = userId => async dispatch => {
   try {
     const res = await api.get(`/profile/user/${userId}`);

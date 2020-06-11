@@ -3,11 +3,9 @@ import { fetchFacebookUser } from '../../actions/facebook'
 import { connect } from 'react-redux'
 const Facebook = ({ authReducer, fetchFacebookUser }) => {
     let output = null
-
     useEffect(() => {
-
         fetchFacebookUser();
-    }, []);
+    }, [fetchFacebookUser]);
     console.log(authReducer)
 
     if (authReducer !== null) {
