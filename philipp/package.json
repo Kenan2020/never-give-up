@@ -23,7 +23,6 @@
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.5",
-    "node-sass": "^4.14.1",
     "normalize-url": "^5.0.0",
     "passport": "^0.4.1",
     "passport-facebook": "^3.0.0",

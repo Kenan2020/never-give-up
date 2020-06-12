@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { animated, useTrail } from "react-spring";
 import Comment from "./Comment";
 import PropTypes from "prop-types";
 
-const CommentsListRender = ({ show, array }) => {
-  const [items, setItems] = useState(null);
+const CommentsListRender = ({ array }) => {
+  // const [items, setItems] = useState(null);
 
   /*  const transition2 = useSpring({
     from: {

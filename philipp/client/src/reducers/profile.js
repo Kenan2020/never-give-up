@@ -5,14 +5,12 @@ import {
 
   GET_PROFILES,
 
-  UPDATE_USER_PROFILE,
-  PROFILE_USER_ERROR
+  // UPDATE_USER_PROFILE,
+  // PROFILE_USER_ERROR
 } from '../actions/types';
 
 const initialState = {
   profile: null,
-  profiles: [],
-  repos: [],
   loading: true,
   user: null,
   error: {}
@@ -22,7 +20,7 @@ export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case UPDATE_USER_PROFILE:
+    // case UPDATE_USER_PROFILE:
     case GET_PROFILE:
 
       return {
@@ -33,11 +31,10 @@ export default function (state = initialState, action) {
     case GET_PROFILES:
       return {
         ...state,
-        profiles: payload,
         loading: false
       };
     case PROFILE_ERROR:
-    case PROFILE_USER_ERROR:
+    // case PROFILE_USER_ERROR:
       return {
         ...state,
         error: payload,
@@ -49,7 +46,6 @@ export default function (state = initialState, action) {
       return {
         ...state,
         profile: null,
-        repos: []
       };
 
     default:

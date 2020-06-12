@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { setAlert } from "../../../actions/alert";
 import { register } from "../../../actions/auth";
 import PropTypes from "prop-types";
@@ -48,7 +48,7 @@ const Register = ({
     <div className="container">
       <div className="row d-flex justify-content-center">
         <div className="col">
-          <h1 className=" text-center mt-3 ">
+          <h1 className=" text-center ">
             <i className="fas fa-user  mt-3" /> Sign Up
           </h1>
           <div className="kpx_login mt-2 ">

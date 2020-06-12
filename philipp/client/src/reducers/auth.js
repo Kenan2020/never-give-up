@@ -9,17 +9,18 @@ import {
   ACCOUNT_DELETED,
   REST_PASSWORD,
   FORGOT_PASSWORD,
-  ACTIVATI_ACOUNTE,
-} from "../actions/types";
+  ACTIVATI_ACOUNTE
+
+} from '../actions/types';
 
 const initialState = {
-  token: localStorage.getItem("token"),
+  token: localStorage.getItem('token'),
   isAuthenticated: null,
   loading: true,
   user: null,
   resetpassword: false,
   forgotpassword: false,
-  activateLink: false,
+  activateLink:false
 };
 
 export default function (state = initialState, action) {
@@ -31,21 +32,20 @@ export default function (state = initialState, action) {
         ...state,
         isAuthenticated: true,
         loading: false,
-        user: payload,
+        user: payload
       };
     case REGISTER_SUCCESS:
       return {
         ...state,
         ...payload,
-        isAuthenticated: true,
-        activateLink: false,
+        activateLink:false
       };
     case LOGIN_SUCCESS:
       return {
         ...state,
         ...payload,
         isAuthenticated: true,
-        loading: false,
+        loading: false
       };
     case ACCOUNT_DELETED:
       return {
@@ -53,7 +53,7 @@ export default function (state = initialState, action) {
         token: null,
         isAuthenticated: false,
         loading: false,
-        user: null,
+        user: null
       };
     case AUTH_ERROR:
     case LOGOUT:
@@ -63,25 +63,26 @@ export default function (state = initialState, action) {
         isAuthenticated: false,
         loading: false,
         user: null,
+
       };
     case REST_PASSWORD:
       return {
         ...state,
-        resetpassword: true,
-      };
+        resetpassword: true
+      }
     case FORGOT_PASSWORD:
       return {
         ...state,
-        forgotpassword: true,
-      };
+        forgotpassword: true
+      }
     case ACTIVATI_ACOUNTE:
       return {
         ...state,
-        ...payload,
-        isAuthenticated: true,
-        loading: false,
-        activateLink: true,
-      };
+         ...payload,
+         isAuthenticated: true,
+         loading:false,
+         activateLink: true
+      }
     default:
       return state;
   }

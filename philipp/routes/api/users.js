@@ -18,8 +18,8 @@ router.post(
   '/',
   [
     check('userName', 'User Name is required').not().isEmpty(),
-    check('name', 'Name is required').not().isEmpty(),
-    check('lastName', 'Last Name is required').not().isEmpty(),
+    // check('name', 'Name is required').not().isEmpty(),
+    // check('lastName', 'Last Name is required').not().isEmpty(),
     check('email', 'Please include a valid email').isEmail(),
     check(
       'password',
@@ -34,8 +34,6 @@ router.post(
 
     const {
       userName,
-      name,
-      lastName,
       email,
       password
     } = req.body;
@@ -58,7 +56,7 @@ router.post(
       );
 
       const token = jwt.sign({
-        name,
+        userName,
         email
       }, config.get('JWT_ACCOUNT_ACTIVATION'), {
         expiresIn: '6h'
@@ -66,8 +64,6 @@ router.post(
 
       user = new User({
         userName,
-        name,
-        lastName,
         email,
         avatar,
         password,
@@ -80,7 +76,7 @@ router.post(
 
       await user.save();
 
-         
+
          const emailData = {
            from: config.get('EMAIL_FROM'),
            to: email,
@@ -115,7 +111,7 @@ router.post(
 
 
 
- 
+
 
   }
 );
@@ -192,7 +188,10 @@ router.post('/forgotpassword', [
     if (user) {
 
 
-      const token = jwt.sign({ _id: user._id, name: user.name }, config.get('JWT_RESET_PASSWORD'), {
+      const token = jwt.sign({
+            _id: user._id,
+            userName: user.userName
+          }, config.get('JWT_RESET_PASSWORD'), {
         expiresIn: '8h'
       });
 

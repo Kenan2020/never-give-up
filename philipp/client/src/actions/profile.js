@@ -6,43 +6,42 @@ import {
   PROFILE_ERROR,
   CLEAR_PROFILE,
   ACCOUNT_DELETED,
-  UPDATE_USER_PROFILE,
-  PROFILE_USER_ERROR,
+
   GET_PROFILES
 } from './types';
 
 
-export const updateUserProfile = (
-  formData,
-  history,
-  edit = true
-) => async dispatch => {
-  try {
-    const res = await api.post('/profile/update', formData);
+// export const updateUserProfile = (
+//   formData,
+//   history,
+//   edit = true
+// ) => async dispatch => {
+//   try {
+//     const res = await api.post('/profile/update', formData);
 
-    dispatch({
-      type: UPDATE_USER_PROFILE,
-      payload: res.data
-    });
+//     dispatch({
+//       type: UPDATE_USER_PROFILE,
+//       payload: res.data
+//     });
 
-    dispatch(setAlert(edit ? 'User Updated' : 'Profile Updateted', 'success'));
+//     dispatch(setAlert(edit ? 'User Updated' : 'Profile Updateted', 'success'));
 
-    if (!edit) {
-      history.push('/dashboard');
-    }
-  } catch (err) {
-    const errors = err.response.data.errors;
+//     if (!edit) {
+//       history.push('/dashboard');
+//     }
+//   } catch (err) {
+//     const errors = err.response.data.errors;
 
-    if (errors) {
-      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-    }
+//     if (errors) {
+//       errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+//     }
 
-    dispatch({
-      type: PROFILE_USER_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
-    });
-  }
-};
+//     dispatch({
+//       type: PROFILE_USER_ERROR,
+//       payload: { msg: err.response.statusText, status: err.response.status }
+//     });
+//   }
+// };
 
 // Get current users profile
 export const getCurrentProfile = () => async dispatch => {

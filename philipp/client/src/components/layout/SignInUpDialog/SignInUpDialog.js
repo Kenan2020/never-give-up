@@ -1,67 +1,10 @@
-/* import React, { useState } from "react";
-import Login from "./Login";
-import Register from "./Register";
-import { removeDialog } from "../../../actions/dialog";
-import { connect } from "react-redux";
-
-import PropTypes from "prop-types";
-
-const SignInUpModal = ({ dialog, removeDialog }) => {
-  const [show, setShow] = useState(false);
-
-  const showRegister = () => {
-    setShow(true);
-  };
-  const showLogin = () => {
-    setShow(false);
-  };
-  console.log(dialog);
-  return dialog ? (
-    <div className="modal fade in">
-      <div className="modal-backdrop fade in"></div>
-      <div className="modal-dialog modal-lg">
-        <div className="modal-content">
-          <div className="modal-header">
-            <button
-              onClick={removeDialog}
-              type="button"
-              className="close"
-              data-dismiss="modal"
-              aria-hidden="true"
-            >
-              ×
-            </button>
-          </div>
-          <h4 className="modal-title" id="myModalLabel">
-            Login/Registration -
-          </h4>
-          <button onClick={showRegister}>Login</button>
-          <button onClick={showLogin}>Login</button>
-        </div>
-        <div className="modal-body">{show ? <Login /> : <Register />}</div>
-      </div>
-    </div>
-  ) : null;
-};
-
-SignInUpModal.propTypes = {
-  dialog: PropTypes.object,
-  removeDialog: PropTypes.func.isRequired,
-};
-
-const mapStateToProps = state => ({
-  dialog: state.dialog,
-});
-
-export default connect(mapStateToProps, { removeDialog })(SignInUpModal);
- */
 import React, { useEffect, useState } from "react";
 import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+//import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import MuiDialogContent from "@material-ui/core/DialogContent";
-import MuiDialogActions from "@material-ui/core/DialogActions";
+
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
@@ -69,6 +12,11 @@ import Grow from "@material-ui/core/Grow";
 
 import Login from "./Login";
 import Register from "./Register";
+//import Carousel from "./../../spring/Carousel";
+
+//import Paper from "@material-ui/core/Paper";
+import Tabs from "@material-ui/core/Tabs";
+import Tab from "@material-ui/core/Tab";
 
 import PropTypes from "prop-types";
 import { removeDialog } from "./../../../actions/dialog";
@@ -115,23 +63,33 @@ const DialogContent = withStyles(theme => ({
   },
 }))(MuiDialogContent);
 
-const DialogActions = withStyles(theme => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(1),
-  },
-}))(MuiDialogActions);
+////////////// Tabs ////////////
 
-const CustomizedDialogs = ({ dialog, removeDialog, isAuthenticated }) => {
-  const [open, setOpen] = React.useState(false);
+function MuiTabs(props) {
+  const { value, handleChange } = props;
+  return (
+    <Tabs
+      centered
+      value={value}
+      indicatorColor="primary"
+      textColor="primary"
+      onChange={handleChange}
+      aria-label="disabled tabs example"
+    >
+      <Tab label="Login" />
+      <Tab label="Register" />
+    </Tabs>
+  );
+}
 
-  const [show, setShow] = useState(true);
+/////////////////////////////////////  SignInUpModal  ////////////////////////////////////////////////////////////
 
-  const showRegister = e => {
-    setShow(true);
-  };
-  const showLogin = e => {
-    setShow(false);
+const SignInUpModal = ({ dialog, removeDialog, isAuthenticated }) => {
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
   const handleClose = () => {
@@ -157,7 +115,6 @@ const CustomizedDialogs = ({ dialog, removeDialog, isAuthenticated }) => {
     <Dialog
       onClose={handleClose}
       fullWidth
-      /* aria-labelledby="simple-dialog-title" */
       aria-labelledby="customized-dialog-title"
       open={open}
       TransitionComponent={Transition}
@@ -166,33 +123,17 @@ const CustomizedDialogs = ({ dialog, removeDialog, isAuthenticated }) => {
         {dialog.title}
       </DialogTitle>
       <DialogContent dividers>
-        <ul className="nav nav-tabs">
-          <li className="nav-item">
-            <button
-              className={`nav-link ${show ? "active" : ""} `}
-              onClick={showRegister}
-            >
-              Login
-            </button>
-          </li>
-          <li className="nav-item">
-            <button
-              className={`nav-link ${!show ? "active" : ""} `}
-              onClick={showLogin}
-            >
-              Register
-            </button>
-          </li>
-        </ul>
-
-        <div className="modal-body">{show ? <Login /> : <Register />}</div>
+        <MuiTabs value={value} handleChange={handleChange} />
+        <div className="modal-body">
+          {(value === 0 && <Login />) || <Register />}
+        </div>
       </DialogContent>
     </Dialog>
   );
 };
 
-CustomizedDialogs.propTypes = {
-  dialog: PropTypes.array.isRequired,
+SignInUpModal.propTypes = {
+  dialog: PropTypes.object,
   isAuthenticated: PropTypes.bool,
 };
 
@@ -201,4 +142,9 @@ const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { removeDialog })(CustomizedDialogs);
+export default connect(mapStateToProps, { removeDialog })(SignInUpModal);
+/*   {(value === 0 && (
+              <Login />
+          )) || (
+                <Register />
+          )} */

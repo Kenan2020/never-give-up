@@ -36,15 +36,11 @@ export const loadUser = () => async dispatch => {
 // Register User
 export const register = ({
     userName,
-    name,
-    lastName,
     email,
     password
   }) => async dispatch => {
   const body = JSON.stringify({
     userName,
-    name,
-    lastName,
     email,
     password
   });

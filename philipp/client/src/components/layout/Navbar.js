@@ -20,11 +20,12 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
 
     <Dropdown>
       <Dropdown.Toggle variant="dark" id="dropdown-basic">
-        {(user && user.picture) ? <img src={user.picture} style={style} alt='user' /> : <i className="fas fa-user" />} {user && user.name}
+        {(user && user.picture) ? <img src={user.picture} style={style} alt='user' /> : <i className="fas fa-user" />} {user && user.userName}
       </Dropdown.Toggle>
       <Dropdown.Menu>
         <Dropdown.Item href="/userprofile"><i className="fas fa-user" /> UserProfile</Dropdown.Item>
         <Dropdown.Item href="/create-profile"><i className="fas fa-user" /> Edit Profile</Dropdown.Item>
+        <Dropdown.Item href="/add-education"><i className="fas fa-user" /> Add Eduction</Dropdown.Item>
         <Dropdown.Item onClick={logout} href="#/action-2"> <i className="fas fa-sign-out-alt"></i>{' '}Logout</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
@@ -33,11 +34,6 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
 
   const guestLinks = (
     <ul className='navbar-nav mr-auto mt-2 mt-lg-0'>
-      {/* <li className='nav-item active'>
-        <Link className='nav-link' to='/display'>
-          Chating <span className='sr-only'>(current)</span>
-        </Link>
-      </li> */}
       <li className='nav-item active'>
         <Link className='nav-link' to='/login'>
           Login <span className='sr-only'>(current)</span>

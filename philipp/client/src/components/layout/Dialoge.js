@@ -118,7 +118,8 @@ const CustomizedDialogs = ({ dialog, removeDialog }) => {
 };
 
 CustomizedDialogs.propTypes = {
-  dialog: PropTypes.array.isRequired,
+  dialog: PropTypes.array,
+  removeDialog: PropTypes.func,
 };
 
 const mapStateToProps = state => ({

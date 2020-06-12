@@ -16,14 +16,12 @@ const Register = ({
   }) => {
   const [formData, setFormData] = useState({
     userName: '',
-    name: '',
-    lastName: '',
     email: '',
     password: '',
     password2: ''
   });
 
-  const { userName, name, lastName, email, password, password2 } = formData;
+  const { userName, email, password, password2 } = formData;
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -33,7 +31,7 @@ const Register = ({
     if (password !== password2) {
       setAlert('Passwords do not match', 'danger');
     } else {
-      register({ userName, name, lastName, email, password });
+      register({ userName, email, password });
     }
   };
   if (authReducer) {
@@ -94,7 +92,7 @@ const Register = ({
                   value={userName}
                   name="userName"
                 />
-                <Input
+                {/* <Input
                   type="text"
                   inputSize="large"
                   placeholder="Write your first name"
@@ -111,7 +109,7 @@ const Register = ({
                   onChange={onChange}
                   value={lastName}
                   name="lastName"
-                />
+                /> */}
                 <Input
                   type="email"
                   inputSize="large"
@@ -160,9 +158,6 @@ const Register = ({
                 <div className="mb-3">
                   <Link to="/login">
                     <Buttonn
-                      onClick={() => {
-                        console.log("you clicked on me");
-                      }}
                       type="button"
                       buttonStyle="btn-primary-outlinee"
                       buttonSize="btn-large"
@@ -179,91 +174,6 @@ const Register = ({
           </div>
         </div>
       </div>
-      {/* 
-      <div className="col-md-6 offset-md-3  bg-light">
-        <h1 className=" text-center mt-3 "><i className="fas fa-user  mt-3" /> Sign Up</h1>
-        <div className="">
-          <a
-            href="/auth/facebook"
-            className="btn btn-lg  d-block kpx_btn-facebook"
-            data-toggle="tooltip"
-            data-placement="top"
-            title="Facebook"
-          >
-            <i className="fa fa-facebook fa-2x"></i>
-            <span className="hidden-xs"></span>
-          </a>
-          <a
-            href="/auth/google"
-            className="btn btn-lg mt-3  d-block kpx_btn-google-plus"
-            data-toggle="tooltip"
-            data-placement="top"
-            title="Google Plus"
-          >
-            <i className="fa fa-google fa-2x"></i>
-            <span className="hidden-xs"></span>
-          </a>
-        </div>
-        <hr />
-        <form onSubmit={onSubmit} className="mt-5">
-          <div className="form-group">
-            <label htmlFor="userName">User name:</label>
-            <input type="text" className="form-control" value={} onChange={onChange} placeholder="Enter user name" name="username" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="firstname">First name:</label>
-            <input type="text" className="form-control" value={name} onChange={onChange} placeholder="Enter first name" name="name" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Last name:</label>
-            <input type="text" className="form-control" value={lastName} onChange={onChange} placeholder="Enter last name" name="lastname" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email:</label>
-            <input type="email" className="form-control" value={email} onChange={onChange} placeholder="Enter email" name="email" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="pwd">Password:</label>
-            <input type="password" onChange={onChange} value={password} className="form-control" placeholder="Enter password" name="password" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="pwd">Cofire Password:</label>
-            <input type="password " onChange={onChange} value={password2} className="form-control" placeholder="Enter password" name="password2" />
-          </div>
-
-          <div className="form-group form-check">
-            <label className="form-check-label">
-              <input className="form-check-input" type="checkbox" name="remember" /> Remember me
-            </label>
-          </div>
-          <div className="mb-5">
-            <Buttonn
-              type="submit"
-              buttonStyle="btn-primary-outlinee"
-              buttonSize="btn-large"
-              value="Register"
-            >
-              SignIn{" "}
-            </Buttonn>
-            <br />
-            <br />
-            <Link to="/login">
-              <Buttonn
-                type="button"
-                buttonStyle="btn-primary-outlinee"
-                buttonSize="btn-large"
-              >
-                Already have account signin
-              </Buttonn>
-            </Link>
-            <Link to='/forgetpassword'>
-              forget Password
-            </Link>
-          </div>
-        </form>
-      </div>
- */}
-
     </Fragment>
   );
 };

@@ -33,8 +33,8 @@ const Login = ({ login, isAuthenticated }) => {
     <div className="container">
       <div className="row d-flex justify-content-center">
         <div className="col">
-          <h1 className=" text-center mt-5 ">
-            <i className="fas fa-user  mt-5" /> Sign in
+          <h1 className=" text-center ">
+            <i className="fas fa-user  mt-3" /> Sign in
           </h1>
           <div className="kpx_login mt-2 ">
             <div className=" kpx_socialButtons">
