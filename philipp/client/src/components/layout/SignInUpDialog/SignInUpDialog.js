@@ -12,8 +12,8 @@ import Grow from "@material-ui/core/Grow";
 
 import Login from "./Login";
 import Register from "./Register";
-//import Carousel from "./../../spring/Carousel";
-
+import { Transition as SpringTransition } from "./../../spring/Transition";
+import { useTransition } from "react-spring";
 //import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
@@ -90,6 +90,7 @@ const SignInUpModal = ({ dialog, removeDialog, isAuthenticated }) => {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    setIndex(newValue);
   };
 
   const handleClose = () => {
@@ -109,6 +110,37 @@ const SignInUpModal = ({ dialog, removeDialog, isAuthenticated }) => {
     }
   }, [isAuthenticated]);
 
+  let [index, setIndex] = useState(0);
+  const changeHandler = () => {
+    setIndex(++index);
+  };
+  const transitions = useTransition(index, p => p, {
+    from: {
+      opacity: 0,
+      transform: "translate3d(100%,0,0)",
+      /*   marginLeft: -2000,
+      marginRight: 2000, */
+    },
+    to: {
+      opacity: 1,
+      transform: "translate3d(0%,0,0)",
+    },
+    enter: {
+      opacity: 1,
+      transform: "translate3d(0%,0,0)",
+      /*   marginLeft: 0,
+      marginRight: 0, */
+    },
+    leave: {
+      opacity: 0,
+      transform: "translate3d(-100%,0,0)",
+      /*  marginLeft: -2000,
+      marginRight: 2000, */
+    },
+    config: { duration: 150 },
+  });
+  console.log(value);
+
   if (!open) return null;
 
   return (
@@ -122,11 +154,17 @@ const SignInUpModal = ({ dialog, removeDialog, isAuthenticated }) => {
       <DialogTitle id="customized-dialog-title" onClose={handleClose}>
         {dialog.title}
       </DialogTitle>
+
       <DialogContent dividers>
         <MuiTabs value={value} handleChange={handleChange} />
-        <div className="modal-body">
+        {console.log(value)}
+        <SpringTransition index={index} transitions={transitions}>
+          <Login />
+          <Register />
+        </SpringTransition>
+        {/*  <div className="modal-body">
           {(value === 0 && <Login />) || <Register />}
-        </div>
+        </div>  */}
       </DialogContent>
     </Dialog>
   );

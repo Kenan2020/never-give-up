@@ -13,11 +13,8 @@ const ReplyListRender = ({ array }) => {
       x: 0,
     },
     config: {
-      duration: 300,
-      precision: 1,
-      mass: 5,
-      tension: 2000,
-      friction: 200,
+      mass: 3,
+      tension: 200,
     },
   });
 

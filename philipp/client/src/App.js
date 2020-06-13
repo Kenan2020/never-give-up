@@ -23,6 +23,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <SignInUpDialog />
+
       <Router>
         <Fragment>
           <Navbar />

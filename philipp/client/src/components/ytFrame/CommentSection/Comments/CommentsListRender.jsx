@@ -47,11 +47,8 @@ const CommentsListRender = ({ array }) => {
       h: 1,
     },
     config: {
-      duration: 300,
-      precision: 1,
-      mass: 5,
-      tension: 2000,
-      friction: 200,
+      mass: 2,
+      tension: 200,
     },
   });
   /*  transform: props.h.interpolate(h => `scaleY(${h})`), */
