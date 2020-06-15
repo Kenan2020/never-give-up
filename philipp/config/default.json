@@ -1,0 +1,16 @@
+{
+  "mongoURI": "mongodb+srv://deutschland-portal:portal1212@cluster0-yqc55.mongodb.net/PHIL?retryWrites=true&w=majority",
+  "jwtSecret": "newsecret",
+  "githubClientId": "aa1fd58898a0bbc1eb47",
+  "githubSecret": "ea8d4c371cc08a3090ec0317a1b4e0da29555508",
+  "googleClientID": "531524502602-n3cav14jri6u95rit5pu68g8pm4t86ta.apps.googleusercontent.com",
+  "googleClientSecret": "z2PlGUQ13I7NUlMJ6r_n9XC6",
+  "cookieKey": "dfsdfsdfsdfsdfsdfsdfsdfsdfs",
+  "facebookclientID": "625018021558147",
+  "facebookClientSecret": "24e153bd2d9e9e9f8606b306e524baca",
+  "EMAIL_FROM": "noreply@re7wac.com",
+  "CLIENT_URL": "http://localhost:3000",
+  "SENDGRID_API_KEY": "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",
+  "JWT_RESET_PASSWORD": "JISDLFM094TRJ43KG RE0VJ4M23IOFÖKLNREOVPIL",
+  "JWT_ACCOUNT_ACTIVATION": "SDFSDFSDVCSVDSDVSDVDBHERT9043T53O4TMKKLGR"
+}

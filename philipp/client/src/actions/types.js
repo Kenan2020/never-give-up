@@ -1,0 +1,39 @@
+export const SET_ALERT = "SET_ALERT";
+export const REMOVE_ALERT = "REMOVE_ALERT";
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+export const REGISTER_FAIL = "REGISTER_FAIL";
+export const USER_LOADED = "USER_LOADED";
+export const AUTH_ERROR = "AUTH_ERROR";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAIL = "LOGIN_FAIL";
+export const LOGOUT = "LOGOUT";
+export const GET_PROFILE = "GET_PROFILE";
+export const GET_PROFILES = "GET_PROFILES";
+export const CLEAR_PROFILE = "CLEAR_PROFILE";
+export const PROFILE_ERROR = "PROFILE_ERROR";
+export const ACCOUNT_DELETED = "ACCOUNT_DELETED";
+export const FETCH_USER = "fetch_user";
+export const GET_USER_PROFILE = "GET_PROFILE";
+export const UPDATE_USER_PROFILE = "UPDATE_PROFILE";
+export const PROFILE_USER_ERROR = "PROFILE_ERROR";
+export const FETCH_FACEBOOK_USER = "PROFILE_ERROR";
+export const REST_PASSWORD = "REST_PASSWORD";
+export const REST_PASSWORD_ERROR = "REST_PASSWORD_ERROR";
+export const FORGOT_PASSWORD = "FORGOT_PASSWORD";
+export const FORGOT_PASSWORD_ERROR = "FORGOT_PASSWORD_ERROR";
+export const ACTIVATI_ACOUNTE = "ACTIVATI_ACOUNTE";
+export const ACTIVATI_ACOUNTE_ERROR = "ACTIVATI_ACOUNTE_ERROR";
+// comments
+export const PUT_COMMENT = "PUT_COMMENT";
+export const ADD_COMMENT = "ADD_COMMENT";
+export const ADD_COMMENTS = "ADD_COMMENTS";
+export const GET_RATING = "GET_RATING";
+// replies
+export const PUT_REPLY = "PUT_REPLY";
+export const ADD_REPLY = "ADD_REPLY";
+export const ADD_REPLYS = "ADD_REPLYS";
+export const GET_REPLYS_RATING = "GET_REPLYS_RATING";
+export const RESET_REPLYS = "RESET_REPLYS";
+// dialog
+export const SET_DIALOG = "SET_DIALOG";
+export const REMOVE_DIALOG = "REMOVE_DIALOG";
